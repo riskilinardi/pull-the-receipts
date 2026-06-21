@@ -136,8 +136,9 @@ function EmptyState({
         Ask, and see exactly where the answer came from.
       </h2>
       <p className="mt-3 max-w-md text-sm text-muted">
-        Every response is built only from the documents you upload. If the
-        answer isn&apos;t in your sources, you&apos;ll be told — not guessed at.
+        Every response is built only from the documents in the knowledge base.
+        If the answer isn&apos;t in the sources, you&apos;ll be informed
+        clearly.
       </p>
       {canAsk && (
         <div className="mt-6 flex flex-wrap justify-center gap-2">
