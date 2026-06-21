@@ -42,10 +42,14 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
     <aside className="scroll-area flex shrink-0 flex-col gap-6 border-b border-line bg-panel px-4 py-6 lg:h-dvh lg:w-80 lg:overflow-y-auto lg:border-b-0 lg:border-r lg:px-6 lg:py-8">
       <div>
         <h1 className="font-display text-3xl tracking-tight">
-          Pull The Receipts
+          Pull The Receipts by RL
         </h1>
         <p className="mt-1 text-sm text-muted">
-          Answers drawn only from your documents, with the sources to prove it.
+          Zero-hallucination AI. Delivering answers based on the documents, with
+          proof from the source(in other words, receipts). <br></br>
+          FYP Project Proposal is based on TogetherSafe project. <br></br>
+          NEA Annual Report is taken from nea.gov.sg which is made available
+          under the terms of the Singapore Open Data Licence version 1.0
         </p>
       </div>
 
