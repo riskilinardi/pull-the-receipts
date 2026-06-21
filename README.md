@@ -2,8 +2,6 @@
 
 A document question-answering app that only answers from the files you give it, and shows the exact source behind every claim. If the answer isn't in the documents, it says so instead of guessing.
 
-I built it to close a gap in my own portfolio — I'd done full-stack work and fine-tuned a BERT model, but I hadn't built a retrieval-augmented generation (RAG) system end to end, and it kept showing up in job descriptions. So I wrote the whole pipeline by hand rather than reaching for a framework, because the point was to understand it, not to hide it.
-
 **Live:** [pullthereceipts-rl.vercel.app/](https://pullthereceipts-rl.vercel.app/) · **Portfolio:** [riskilinardi.vercel.app](https://riskilinardi.vercel.app)
 
 ![Pull The Receipts 1](docs/ss1.png)
