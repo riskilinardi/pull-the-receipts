@@ -100,3 +100,11 @@ export async function deleteDocument(filename: string): Promise<void> {
     throw new Error(`Delete failed (${response.status})`);
   }
 }
+
+export async function listDocuments(): Promise<IngestedDocument[]> {
+  const response = await fetch(`${API_URL}/documents`);
+  if (!response.ok) {
+    throw new Error(`Failed to load documents (${response.status})`);
+  }
+  return response.json();
+}

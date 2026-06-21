@@ -1,16 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Conversation } from "@/components/Conversation";
 import { DocumentLibrary } from "@/components/DocumentLibrary";
-import { deleteDocument, ingestDocument } from "@/lib/api";
+import { deleteDocument, ingestDocument, listDocuments } from "@/lib/api";
 import { useConversation } from "@/lib/useConversation";
 import type { IngestedDocument } from "@/lib/types";
 
 export default function Home() {
   const [documents, setDocuments] = useState<IngestedDocument[]>([]);
   const { exchanges, isBusy, ask, stop, clear } = useConversation();
+
+  useEffect(() => {
+    listDocuments()
+      .then(setDocuments)
+      .catch(() => {});
+  }, []);
 
   const handleUpload = async (file: File) => {
     const ingested = await ingestDocument(file);
