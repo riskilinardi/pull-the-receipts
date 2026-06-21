@@ -11,7 +11,6 @@ import type { IngestedDocument } from "@/lib/types";
 export default function Home() {
   const [documents, setDocuments] = useState<IngestedDocument[]>([]);
   const { exchanges, isBusy, ask, stop, clear } = useConversation();
-
   useEffect(() => {
     listDocuments()
       .then(setDocuments)
