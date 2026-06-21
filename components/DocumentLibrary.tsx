@@ -22,9 +22,7 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
     try {
       await onUpload(file);
     } catch {
-      setError(
-        `Couldn't process ${file.name}. Check the server and try again.`,
-      );
+      setError(`Couldn't process ${file.name}. Check the server and try again.`);
     } finally {
       setPending(null);
     }
@@ -41,15 +39,19 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
   return (
     <aside className="scroll-area flex shrink-0 flex-col gap-6 border-b border-line bg-panel px-4 py-6 lg:h-dvh lg:w-80 lg:overflow-y-auto lg:border-b-0 lg:border-r lg:px-6 lg:py-8">
       <div>
-        <h1 className="font-display text-3xl tracking-tight">
-          Pull The Receipts by RL
-        </h1>
-        <p className="mt-1 text-sm text-muted">
-          Zero-hallucination AI. Delivering answers based on the documents, with
-          proof from the source(in other words, receipts). <br></br>
-          FYP Project Proposal is based on TogetherSafe project. <br></br>
-          NEA Annual Report is taken from nea.gov.sg which is made available
-          under the terms of the Singapore Open Data Licence version 1.0
+        <div className="flex items-baseline justify-between gap-2">
+          <h1 className="font-display text-3xl tracking-tight">Pull The Receipts</h1>
+          
+            href="https://riskilinardi.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 font-mono text-[11px] text-faint transition-colors hover:text-accent-text"
+          >
+            by RL
+          </a>
+        </div>
+        <p className="mt-2 text-sm text-muted">
+          Zero-hallucination answers, grounded in your documents — with the receipts to prove it.
         </p>
       </div>
 
@@ -62,9 +64,7 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
           <span className="block text-sm font-medium text-ink">
             {pending ? `Processing ${pending}…` : "Add a document"}
           </span>
-          <span className="mt-0.5 block text-xs text-faint">
-            PDF, text, or markdown
-          </span>
+          <span className="mt-0.5 block text-xs text-faint">PDF, text, or markdown</span>
         </button>
         <input
           ref={inputRef}
@@ -87,9 +87,7 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
               <h2 className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">
                 Knowledge base
               </h2>
-              <span className="font-mono text-xs text-faint">
-                {totalChunks} chunks
-              </span>
+              <span className="font-mono text-xs text-faint">{totalChunks} chunks</span>
             </div>
             <ul className="space-y-1">
               {documents.map((doc) => (
@@ -103,6 +101,25 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
             </ul>
           </>
         )}
+      </div>
+
+      <div className="space-y-2 border-t border-line pt-4 text-xs leading-relaxed text-faint">
+        <p>
+          <span className="text-muted">FYP Project Proposal</span> is based on the
+          TogetherSafe project.
+        </p>
+        <p>
+          <span className="text-muted">NEA Annual Report</span> is from{" "}
+          
+            href="https://nea.gov.sg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline transition-colors hover:text-accent-text"
+          >
+            nea.gov.sg
+          </a>
+          , made available under the Singapore Open Data Licence v1.0.
+        </p>
       </div>
     </aside>
   );
@@ -143,18 +160,13 @@ function DocumentRow({
           >
             {removing ? "Removing…" : "Remove"}
           </button>
-          <button
-            onClick={() => setConfirming(false)}
-            className="text-faint hover:text-muted"
-          >
+          <button onClick={() => setConfirming(false)} className="text-faint hover:text-muted">
             Cancel
           </button>
         </span>
       ) : (
         <span className="flex shrink-0 items-center gap-2">
-          <span className="font-mono text-xs text-faint">
-            {document.chunks}
-          </span>
+          <span className="font-mono text-xs text-faint">{document.chunks}</span>
           {!isProtected && (
             <button
               onClick={() => setConfirming(true)}
