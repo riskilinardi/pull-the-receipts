@@ -55,7 +55,7 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
           </a>
         </div>
         <p className="mt-2 text-sm text-muted">
-          Zero-hallucination answers, grounded in your documents — with the
+          Zero-hallucination answers grounded in your documents, with the
           receipts to prove it.
         </p>
       </div>
@@ -113,6 +113,11 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
       </div>
 
       <div className="space-y-2 border-t border-line pt-4 text-xs leading-relaxed text-faint">
+        <p>
+          <span className="text-muted">Documents Uploaded</span> can be removed
+          at any time, only the first 2 documents are protected for
+          demonstration purposes.
+        </p>
         <p>
           <span className="text-muted">FYP Project Proposal</span> is based on
           the TogetherSafe project.
