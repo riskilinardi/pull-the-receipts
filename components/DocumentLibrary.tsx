@@ -22,7 +22,9 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
     try {
       await onUpload(file);
     } catch {
-      setError(`Couldn't process ${file.name}. Check the server and try again.`);
+      setError(
+        `Couldn't process ${file.name}. Check the server and try again.`,
+      );
     } finally {
       setPending(null);
     }
@@ -40,8 +42,10 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
     <aside className="scroll-area flex shrink-0 flex-col gap-6 border-b border-line bg-panel px-4 py-6 lg:h-dvh lg:w-80 lg:overflow-y-auto lg:border-b-0 lg:border-r lg:px-6 lg:py-8">
       <div>
         <div className="flex items-baseline justify-between gap-2">
-          <h1 className="font-display text-3xl tracking-tight">Pull The Receipts</h1>
-          
+          <h1 className="font-display text-3xl tracking-tight">
+            Pull The Receipts
+          </h1>
+          <a
             href="https://riskilinardi.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
@@ -51,7 +55,8 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
           </a>
         </div>
         <p className="mt-2 text-sm text-muted">
-          Zero-hallucination answers, grounded in your documents — with the receipts to prove it.
+          Zero-hallucination answers, grounded in your documents — with the
+          receipts to prove it.
         </p>
       </div>
 
@@ -64,7 +69,9 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
           <span className="block text-sm font-medium text-ink">
             {pending ? `Processing ${pending}…` : "Add a document"}
           </span>
-          <span className="mt-0.5 block text-xs text-faint">PDF, text, or markdown</span>
+          <span className="mt-0.5 block text-xs text-faint">
+            PDF, text, or markdown
+          </span>
         </button>
         <input
           ref={inputRef}
@@ -87,7 +94,9 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
               <h2 className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">
                 Knowledge base
               </h2>
-              <span className="font-mono text-xs text-faint">{totalChunks} chunks</span>
+              <span className="font-mono text-xs text-faint">
+                {totalChunks} chunks
+              </span>
             </div>
             <ul className="space-y-1">
               {documents.map((doc) => (
@@ -105,12 +114,12 @@ export function DocumentLibrary({ documents, onUpload, onDelete }: Props) {
 
       <div className="space-y-2 border-t border-line pt-4 text-xs leading-relaxed text-faint">
         <p>
-          <span className="text-muted">FYP Project Proposal</span> is based on the
-          TogetherSafe project.
+          <span className="text-muted">FYP Project Proposal</span> is based on
+          the TogetherSafe project.
         </p>
         <p>
           <span className="text-muted">NEA Annual Report</span> is from{" "}
-          
+          <a
             href="https://nea.gov.sg"
             target="_blank"
             rel="noopener noreferrer"
@@ -160,13 +169,18 @@ function DocumentRow({
           >
             {removing ? "Removing…" : "Remove"}
           </button>
-          <button onClick={() => setConfirming(false)} className="text-faint hover:text-muted">
+          <button
+            onClick={() => setConfirming(false)}
+            className="text-faint hover:text-muted"
+          >
             Cancel
           </button>
         </span>
       ) : (
         <span className="flex shrink-0 items-center gap-2">
-          <span className="font-mono text-xs text-faint">{document.chunks}</span>
+          <span className="font-mono text-xs text-faint">
+            {document.chunks}
+          </span>
           {!isProtected && (
             <button
               onClick={() => setConfirming(true)}
