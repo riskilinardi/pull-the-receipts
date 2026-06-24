@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Newsreader } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
@@ -32,7 +33,10 @@ export default function RootLayout({
   const fontVariables = `${newsreader.variable} ${inter.variable} ${jetbrainsMono.variable}`;
   return (
     <html lang="en" className={fontVariables}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
